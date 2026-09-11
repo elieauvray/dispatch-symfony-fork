@@ -13,6 +13,8 @@ or bump dependencies.
 |--------|------------------|---------------------------------------|
 | GET    | `/`              | `{ app, message }`                    |
 | GET    | `/hello/{name}`  | `{ message: "Hello, <name>!" }`       |
+| GET    | `/status`        | `{ status: "ok" }`                    |
+| GET    | `/healthz`       | `{ status: "ok" }` (liveness probe)   |
 
 ## Run locally
 
