@@ -14,6 +14,11 @@ or bump dependencies.
 | GET    | `/`              | `{ app, message }`                    |
 | GET    | `/hello/{name}`  | `{ message: "Hello, <name>!" }`       |
 | GET    | `/status`        | `{ status: "ok" }`                    |
+| GET    | `/healthz`       | `{ status: "ok" }` — liveness probe   |
+
+`/healthz` is the liveness probe used by the platform to route around an
+unhealthy instance. It performs no database or external calls and sends
+`Cache-Control: no-store`.
 
 ## Run locally
 
