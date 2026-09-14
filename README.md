@@ -14,6 +14,16 @@ or bump dependencies.
 | GET    | `/`              | `{ app, message }`                    |
 | GET    | `/hello/{name}`  | `{ message: "Hello, <name>!" }`       |
 | GET    | `/status`        | `{ status: "ok" }`                    |
+| GET    | `/healthz`       | `{ status: "ok" }`                    |
+
+## Health check
+
+`GET /healthz` is a **liveness** probe: it returns `200` with the body
+`{"status":"ok"}` (and `Cache-Control: no-store`) as long as the application
+process can serve requests. It deliberately touches no database, cache or
+external service, so a dependency outage will not make the platform restart a
+healthy instance. Point the deployment's liveness probe at this path; a
+readiness check would need a separate endpoint.
 
 ## Run locally
 
