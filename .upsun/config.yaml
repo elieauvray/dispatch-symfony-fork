@@ -47,6 +47,7 @@ services:
     type: postgresql:18
 
 routes:
+  # Liveness probe path served by the app: GET /healthz -> {"status":"ok"}
   https://{default}/:
     type: upstream
     upstream: app:http
