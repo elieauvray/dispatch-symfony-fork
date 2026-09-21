@@ -33,7 +33,6 @@ symfony serve            # or: php -S 127.0.0.1:8000 -t public
 
 Sample issues to try:
 
-- "Add a `/healthz` endpoint that returns `{ status: ok }`."
 - "Return 404 instead of 500 when `/hello/{name}` receives a name longer than 64 chars."
 - "Add a `/version` endpoint that returns the Symfony version and PHP version."
 - "Bump `symfony/http-foundation` to a patched release to clear current security advisories."
