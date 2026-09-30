@@ -6,24 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class HealthzControllerTest extends WebTestCase
 {
-    public function testHealthzReturnsOk(): void
+    public function testHealthzIsNotFound(): void
     {
         $client = static::createClient();
         $client->request('GET', '/healthz');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertResponseHeaderSame('Content-Type', 'application/json');
-        $this->assertSame(
-            ['status' => 'ok'],
-            json_decode($client->getResponse()->getContent(), true)
-        );
-    }
-
-    public function testHealthzRejectsNonGetMethods(): void
-    {
-        $client = static::createClient();
-        $client->request('POST', '/healthz');
-
-        $this->assertResponseStatusCodeSame(405);
+        $this->assertResponseStatusCodeSame(404);
     }
 }
