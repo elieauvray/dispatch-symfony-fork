@@ -14,10 +14,6 @@ or bump dependencies.
 | GET    | `/`              | `{ app, message }`                    |
 | GET    | `/hello/{name}`  | `{ message: "Hello, <name>!" }`       |
 | GET    | `/status`        | `{ status: "ok" }`                    |
-| GET    | `/healthz`       | `{ status: "ok" }` — liveness probe   |
-
-`/healthz` is a liveness probe: it performs no database, cache, or external
-calls, so it reports only whether the process can serve a request.
 
 ## Run locally
 
